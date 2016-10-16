@@ -115,7 +115,7 @@ Lakóként egy új kiadást hozunk létre:
 
 ####Oldalvázlatok
 
-![](Images/mockup/Bejeletkezes.jpg)
+![](Images/mockup/Bejelentkezes.jpg)
 
 ![](Images/mockup/Fooldal_Admin.jpg)
 
