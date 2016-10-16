@@ -39,12 +39,16 @@ A fő feladatok: bevétel/kiadás rögzítése, módosítása, törlése, házta
 - **Lakó:** az a természetes személy, aki az adott háztartásban életvitelszerűen él
 
 ####Osztálymodell
-(Images/nomnoml/osztalymodell.png)
+
+![](Images/nomnoml/osztalymodell.png)
+
 ####Használatieset-modell, szerepkörök
 - **Közös tulajdonságok:** Bejelentkezés, jelszó módosítása, kijelentkezés
 - **Admin:** Új lakó beregisztrálása/trölése, lakó hozzárendelése egy háztartáshoz, háztartás létrehozása/törlése/módosítása
 - **Lakó:** Adatok módosítása, bevétel létrehozása/módosítása/törlése, kiadás létrehozása/módosítása/törlése, bevétel/kiadás listázása
-(Images/nomnoml/hasznalatiesetmodell.png)
+
+![](Images/nomnoml/hasznalatiesetmodell.png)
+
 ####Példa egy folyamatra:
 Lakóként egy új kiadást hozunk létre:
 
@@ -53,7 +57,9 @@ Lakóként egy új kiadást hozunk létre:
 3. Ha nem sikerült a kiadás létrehozása akkor javítja a hibákat
 4. A kiadás létrehozása után létrehozhat többet is
 5. Kijelentkezése
-(Images/nomnoml/folyamtabra.png)
+
+![](Images/nomnoml/folyamtabra.png)
+
 ###Tervezése
 ####OldalTérkép
 - **Publikus:**
@@ -108,3 +114,23 @@ Lakóként egy új kiadást hozunk létre:
 - POST/profil: felhasználói adatok elküldése
 
 ####Oldalvázlatok
+
+![](Images/mockup/Bejeletkezes.jpg)
+
+![](Images/mockup/Fooldal_Admin.jpg)
+
+![](Images/mockup/Fooldal_Lako.jpg)
+
+![](Images/mockup/Haztartasok.jpg)
+
+![](Images/mockup/Uj_Haztartas.jpg)
+
+![](Images/mockup/Lakok.jpg)
+
+![](Images/mockup/Uj_Lako.jpg)
+
+![](Images/mockup/Bevetelek_Kiadasok.jpg)
+
+![](Images/mockup/Uj_Bevetel_Kiadas.jpg)
+
+![](Images/mockup/Profil.jpg)
