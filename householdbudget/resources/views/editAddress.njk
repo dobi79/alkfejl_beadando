@@ -1,0 +1,49 @@
+{% extends "parent.njk" %}
+{% block content %}
+<ul>
+    {% for error in old('errors') %}
+      <li>{{ error.message }}</li>
+    {% endfor %}
+  </ul>
+<form class="form-horizontal" method="POST">
+    {{ csrfField }}
+  <fieldset>
+    <legend>Cím Regisztráció</legend>
+    <div class="form-group">
+      <label for="inputZipCode" class="col-lg-2 control-label">Irányító szám</label>
+      <div class="col-lg-10">
+        <input type="number" class="form-control" id="inputZipCode" name="zip_code" value="{{ address.zip_code }}" placeholder="Irányítószám">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputCity" class="col-lg-2 control-label">Város</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputCity" name="city" placeholder="Város" value="{{ address.city }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputStreet" class="col-lg-2 control-label">Utca</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputStreet" name="street" placeholder="Utca" value="{{ address.street}}">
+    
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputNumber" class="col-lg-2 control-label">Házszám</label>
+      <div class="col-lg-10">
+        <input type="number" class="form-control" id="inputNumber" name="number" value="{{ address.number }}" placeholder="Házszám">
+      </div>
+    </div>
+
+   
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-primary">Mentés!</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+{% endblock %}

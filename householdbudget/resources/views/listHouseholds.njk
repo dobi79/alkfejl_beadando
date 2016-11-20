@@ -1,0 +1,30 @@
+{% extends "parent.njk" %}
+{% block content %}
+
+<table class="table table-striped table-inverse">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Irányítószám</th>
+      <th>Város</th>
+      <th>Utca</th>
+      <th>Házszám</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for house in households%}
+        <tr>
+            <th scope="row">{{house.id}}</th>
+            <td>{{house.zip_code}}</td>
+            <td>{{house.city}}</td>
+            <td>{{house.street}}</td>
+            <td>{{house.number}}</td>
+            <td><a href='/editAddress/{{house.id}}'>Szerkesztés</a></td>
+            <td><a href='/delete/{{house.id}}'>Törlés</a></td>
+        </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{% endblock %}

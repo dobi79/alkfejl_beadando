@@ -87,31 +87,34 @@ Lakóként egy új kiadást hozunk létre:
 			* Törlés
 			
 ####Végpontok
-- GET/login: bejelentkező oldal
-- POST/login: bejelentkező adatok elküldése
-- GET/logout: kijelentkező oldal
-- GET/: főoldal
-- GET/bevetel/list: betvétel kilistázása
-- GET/kiadas/list: kiadas kilistázása
-- GET/lako/list: lakók kilistázása
-- GET/lako/new: új lakó felvétele
-- POST/lako/new: új lakó felvételéhez szükséges adatok elküldése
-- GET/lako/edit=id: lakó adatainak módosítása
-- POST/lako/edit=id: lakó adatainak módosításához szükséges adatok elküldése
-- GET/haztartas/new: új háztartás létrehozása
-- POST/haztartas/new: új háztartás adatainak elküldése
-- GET/haztartas/edit=id: háztartás adatainak módosítása
-- POST/haztartas/edit=id: háztartás adatainak módosításához szükséges adatok elküldése
-- GET/bevetel/new: új bevétel létrehozása
-- POS/bevetel/new: új bevétel létrehozásához szükséges adatok elküldése
-- GET/bevetel/edit=id: bevetel módosítása
-- POST/bevetel/edit=id: bevétel módosításához szükséges adatok elküldése
-- GET/kiadás/new: új kiadás létrehozása
-- POS/kiadás/new: új kiadas létrehozásához szükséges adatok elküldése
-- GET/kiadas/edit=id: kiadas módosítása
-- POST/kiadas/edit=id: kiadas módosításához szükséges adatok elküldése
-- GET/profil: felhasználói adatok
-- POST/profil: felhasználói adatok elküldése
+User:
+- GET/: bejelentkező oldal
+- POST/: bejelentkező adatok elküldése
+- GET/home: főoldal oldal
+- GET/registration: felhasználó regisztrálása
+- POST/registration: felhasználó adatainak elküldése
+- GET/logout: kijelentkezés
+- GET/addressReg: cím regisztrálása
+- POST/addressReg: lakás adatainak elküldése
+- GET/newbudget/edit=id: új bevétel/kiadás rögzítése
+- POST/newbudget/edit=id: új bevétel/kiadás adtai elküldése
+- GET/showbudgets: felhasználó költségeinek listázása
+- GET/editbudgets/edit=id: költség adatainak módosítása
+- POST/editbudgets/edit=id: költség adatainak elküldése
+- GET/delete/edit=id: költség törlése
+- GET/editUser/edit=id: felhasználó adatainak módosítása
+- POST/editUser/edit=id: felhasználó addatainak elküldése
+- GET/changePassword/edit=id: jelszó módosítása
+- POST/changePassword/edit=id: módosított jelszó elküldése
+
+Admin:
+- GET/changeUser/edit=id: kiválasztott felhasználó adatainak módosítása
+- POST/changeUser/edit=id: felhasználó adatainak elküldése
+- GET/changeUser/edit=id/delete: kiválasztott felhasználó törlése
+- GET/listHouseholds: lakások kilistázása
+- GET/editAddress/edit=id: lakás adatainak szerkesztése
+- POST/editAddress/edit=id: lakás adataink elküldése
+- GET/delete/edit=id: lakás törlése
 
 ####Oldalvázlatok
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>HouseholderBoudgets</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+<ul>
+    {% for error in old('errors') %}
+      <li>{{ error.message }}</li>
+    {% endfor %}
+  </ul>
+<form class="form-horizontal" method="POST">
+    {{ csrfField }}
+  <fieldset>
+    <legend>Cím Regisztráció</legend>
+    <div class="form-group">
+      <label for="inputZipCode" class="col-lg-2 control-label">Irányító szám</label>
+      <div class="col-lg-10">
+        <input type="number" class="form-control" id="inputZipCode" name="zip_code" value="{{ old('zip_code') }}" placeholder="Irányítószám">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputCity" class="col-lg-2 control-label">Város</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputCity" name="city" placeholder="Város" value="{{ old('city')}}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputStreet" class="col-lg-2 control-label">Utca</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputStreet" name="street" placeholder="Utca" value="{{ old('street')}}">
+    
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputNumber" class="col-lg-2 control-label">Házszám</label>
+      <div class="col-lg-10">
+        <input type="number" class="form-control" id="inputNumber" name="number" value="{{ old('number') }}" placeholder="Házszám">
+      </div>
+    </div>
+
+   
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-primary">Regisztrálok!</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

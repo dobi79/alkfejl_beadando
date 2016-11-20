@@ -1,0 +1,49 @@
+{% extends "parent.njk" %}
+{% block content %}
+
+  <table class="table table-striped table-inverse">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Megjegyzés</th>
+      <th>Összeg</th>
+      <th>Dátum</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for budget in budgets%}
+      {%if budget.user_id == currentUser.id%}
+        <tr>
+            <th scope="row">{{budget.id}}</th>
+            <td>{{budget.comment}}</td>
+            <td>{{budget.money}}</td>
+            <td>{{budget.updated_at}}</td>
+            <td><a href='/editbudgets/{{budget.id}}'>Szerkesztés</a></td>
+            <td><a href='/delete/{{budget.id}}'>Törlés</a></td>
+        </tr>
+        {%endif%}
+    {%endfor%}
+  </tbody>
+</table>
+
+
+{% endblock %}
+
+<div class="row">
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      </div>
+      {% for budget in budgets %}
+      <ul class="list-group">
+        {% if budget.user_id == currentUser.id%}
+          <a href="/editbudgets/{{budget.id}}">{{ budget.money }}</a>
+        {%endif%}
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

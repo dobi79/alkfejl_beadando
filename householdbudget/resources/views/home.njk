@@ -1,0 +1,55 @@
+{% extends "parent.njk" %}
+{% block content %}
+<div class="row">
+  {% if currentUser.id != 1111%}
+    {%for house in households%}
+      {%if house.id == currentUser.household_id %}
+        <div style='text-align:center'>
+        <h1 >{{house.zip_code}} {{house.city}} {{house.street}} {{house.number}}</h1>
+        </div>
+        <table class="table table-striped table-inverse">
+          <thead>
+            <tr>
+              <th>Név</th>
+              <th>Megjegyzés</th>
+              <th>Fizetés</th>
+              <th>Dátum</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for budget in budgets%}
+                <tr>
+                  {%for user in users%}
+                    {%if user.id == budget.user_id and budget.address_id == currentUser.household_id%}
+                      <th scope="row">{{user.lastname}} {{user.firstname}}</th>
+                      <td>{{budget.comment}}</td>
+                      <td>{{budget.money}}</td>
+                      <td>{{budget.updated_at}}</td>
+                    {%endif%}
+                  {%endfor%}
+                </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+        {%endif%}
+      {%endfor%}
+  {%else%}
+    {% for house in households %}
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            {{ house.city }} {{house.street}} {{house.number}}
+          </div>
+            {% for user in users %}
+              <ul class="list-group">
+                  {% if user.household_id == house.id%}
+                      <a href='changeUser/{{user.id}}'>{{ user.lastname }} {{user.firstname}}</a>
+                  {%endif%}
+              </ul>
+            {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  {%endif%}
+</div>
+{% endblock %}
