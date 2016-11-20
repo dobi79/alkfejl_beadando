@@ -90,7 +90,7 @@ Lakóként egy új kiadást hozunk létre:
 User:
 - GET/: bejelentkező oldal
 - POST/: bejelentkező adatok elküldése
-- GET/home: főoldal oldal
+- GET/home: főoldal
 - GET/registration: felhasználó regisztrálása
 - POST/registration: felhasználó adatainak elküldése
 - GET/logout: kijelentkezés
