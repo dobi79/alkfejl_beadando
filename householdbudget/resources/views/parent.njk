@@ -16,6 +16,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+ <script src="/clock.js"></script>
+  {% block scripts %} {% endblock %}
   </head>
   <body>
 
@@ -45,12 +51,16 @@
     
           <div style="float:right; padding-top:0.5%">
             {% if currentUser.id == 1111 %}
+            <div style="float:right">
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{currentUser.lastname}}
               <span class="caret"></span></button>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="/logout">Kilépés</a></li>
               </ul>
+            </div>
+            <div id="clock" style="float:right; padding-top: 10px; padding-right:10px"></div>
             {% else%}    
+               <div style="float:right">
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{currentUser.lastname}} {{currentUser.firstname}}
               <span class="caret"></span></button>
               <ul class="dropdown-menu dropdown-menu-right">
@@ -59,6 +69,8 @@
                 <li class="divider"></li>
                 <li><a href="/logout">Kilépés</a></li>
               </ul>
+               </div>
+                <div id="clock" style="float:right; padding-top: 10px; padding-right:10px"></div>
             {%endif%}
           </div>
         </div>

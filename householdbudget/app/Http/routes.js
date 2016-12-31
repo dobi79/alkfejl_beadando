@@ -30,7 +30,7 @@ Route.post('/newbudget/:id', 'UserController.subBudget').middleware('auth');
 Route.get('/showbudgets', 'UserController.listbudgets').middleware('auth');
 Route.get('/editbudgets/:id', 'UserController.showEditBudget').middleware('auth');
 Route.post('/editbudgets/:id', 'UserController.editBudget').middleware('auth');
-Route.get('/delete/:id', 'UserController.deleteBudget').middleware('auth');
+Route.post('/delete/:id', 'UserController.deleteBudget').middleware('auth');
 Route.get('/editUser/:id', 'UserController.editUser').middleware('auth');
 Route.post('/editUser/:id', 'UserController.subEditUser').middleware('auth');
 Route.get('/changePassword/:id', 'UserController.showChangePass').middleware('auth');
@@ -38,8 +38,14 @@ Route.post('/changePassword/:id', 'UserController.changePass').middleware('auth'
 
 Route.get('/changeUser/:id', 'AdminController.changeUser').middleware('auth');
 Route.post('/changeUser/:id', 'AdminController.subChangeUser').middleware('auth');
-Route.get('/changeUser/:id/delete', 'AdminController.deleteUser').middleware('auth');
+Route.post('/changeUser/:id/delete', 'AdminController.deleteUser').middleware('auth');
 Route.get('/listHouseholds', 'AdminController.listHouseholds').middleware('auth');
 Route.get('/editAddress/:id', 'AdminController.editAddress').middleware('auth');
 Route.post('/editAddress/:id', 'AdminController.subEditAddress').middleware('auth');
-Route.get('/delete/:id', 'AdminController.deleteAddress').middleware('auth');
+Route.post('/deleteAdm/:id', 'AdminController.deleteAddress').middleware('auth');
+
+Route.group('ajax', function(){
+    Route.delete('/delete/:id', 'UserController.ajaxDeleteBudget')
+    Route.delete('/deleteAdm/:id', 'AdminController.ajaxDeleteHousehold')
+    Route.delete('/changeUser/:id/delete', 'AdminController.ajaxDeleteUser')
+}).prefix('/ajax');

@@ -81,6 +81,42 @@ class AdminController {
         yield address.delete();
         res.redirect('/listHouseholds');
     }
+
+     * ajaxDeleteHousehold(req, res){
+        var address = yield Household.findBy('id', req.param('id'));
+        var budgets = yield Budget.query().where('address_id', address.id);
+        var users = yield User.query().where('household_id', address.id);
+
+        for(var i = 0; i < budgets.length; ++i){
+            var budget = yield Budget.findBy('id', budgets[i].id);
+            yield budget.delete();
+        }
+
+        for(var j = 0; j < users.length; ++j){
+            var user = yield User.findBy('id', users[j].id);
+            yield user.delete();
+        }
+
+        yield address.delete();
+
+       yield res.ok({
+            message:'OK!'
+        });
+    }
+
+    * ajaxDeleteUser(req, res){
+        var user = yield User.findBy('id', req.param('id'));
+        var budgets = yield Budget.query().where('user_id', user.id);
+        for( var i = 0; i < budgets.length; ++i){
+            var budget = yield Budget.findBy('id', budgets[i].id);
+            yield budget.delete();
+        }
+        yield user.delete();
+
+        yield res.ok({
+            message:'OK!'
+        });
+    }
 }
 
 module.exports = AdminController

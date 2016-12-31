@@ -16,6 +16,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+     <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+     <script src='/show.js'></script>
   </head>
   <body>
 
@@ -61,11 +66,29 @@
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="submit" class="btn btn-primary">Módosítás!</button>
-        <a href='/changeUser/{{user.id}}/delete'>Törlés</a>
       </div>
     </div>
   </fieldset>
 </form>
+<div style="padding-left: 230px">
+        <form class="delete" action = "/changeUser/{{user.id}}/delete" method="POST">
+                    {{ csrfField }}
+                <input class="btn btn-danger" style="position:absolute" type="submit" value="Törlés"/>
+        </form>
+</div>
+<div class="modal fade confirm-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+        <div class="modal-body">
+            Biztosan törölni szeretnéd?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success modal-ok" data-dismiss="modal">OK</button>
+            <button type="button" class="btn btn-danger modal-cancel" data-dismiss="modal">Mégse</button>
+        </div>
+        </div>
+    </div>
+</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

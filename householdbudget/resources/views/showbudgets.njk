@@ -1,5 +1,9 @@
 {% extends "parent.njk" %}
+{% block scripts %} 
+  <script src='/show.js'></script>
+{% endblock %}
 {% block content %}
+
 
   <table class="table table-striped table-inverse">
   <thead>
@@ -21,29 +25,30 @@
             <td>{{budget.money}}</td>
             <td>{{budget.updated_at}}</td>
             <td><a href='/editbudgets/{{budget.id}}'>Szerkesztés</a></td>
-            <td><a href='/delete/{{budget.id}}'>Törlés</a></td>
+            <td>
+              <form class="delete" action = "/delete/{{budget.id}}" method="POST">
+                    {{ csrfField }}
+                <input class="btn btn-danger" type="submit" value="Törlés"/>
+              </form>
+            </td>
         </tr>
         {%endif%}
     {%endfor%}
   </tbody>
 </table>
 
+<div class="modal fade confirm-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+        <div class="modal-body">
+            Biztosan törölni szeretnéd?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success modal-ok" data-dismiss="modal">OK</button>
+            <button type="button" class="btn btn-danger modal-cancel" data-dismiss="modal">Mégse</button>
+        </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
-
-<div class="row">
-  <div class="col-md-4 col-sm-6 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-      </div>
-      {% for budget in budgets %}
-      <ul class="list-group">
-        {% if budget.user_id == currentUser.id%}
-          <a href="/editbudgets/{{budget.id}}">{{ budget.money }}</a>
-        {%endif%}
-      </ul>
-      {% endfor %}
-    </div>
-  </div>
-
-</div>

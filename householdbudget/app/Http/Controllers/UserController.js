@@ -227,6 +227,15 @@ class UserController {
 
         yield res.redirect('/home');
     }
+
+    * ajaxDeleteBudget(req, res) {
+        var budget = yield Budget.findBy('id', req.param('id'));
+        yield budget.delete();
+
+        yield res.ok({
+            message:'OK!'
+        });
+    }
 }
 
 module.exports = UserController

@@ -1,4 +1,9 @@
 {% extends "parent.njk" %}
+{% block scripts %}
+{%if currentUser.id != 1111 %}
+  <script src="/sum.js"></script>
+{%endif%}
+{% endblock %}
 {% block content %}
 <div class="row">
   {% if currentUser.id != 1111%}
@@ -23,7 +28,7 @@
                     {%if user.id == budget.user_id and budget.address_id == currentUser.household_id%}
                       <th scope="row">{{user.lastname}} {{user.firstname}}</th>
                       <td>{{budget.comment}}</td>
-                      <td>{{budget.money}}</td>
+                      <td name = "money" type='number'>{{budget.money}}</td>
                       <td>{{budget.updated_at}}</td>
                     {%endif%}
                   {%endfor%}
@@ -31,6 +36,9 @@
             {%endfor%}
           </tbody>
         </table>
+        <div id = "sum" style='text-align:center'>
+        </div>
+        <div>
         {%endif%}
       {%endfor%}
   {%else%}
