@@ -45,7 +45,8 @@ Route.post('/editAddress/:id', 'AdminController.subEditAddress').middleware('aut
 Route.post('/deleteAdm/:id', 'AdminController.deleteAddress').middleware('auth');
 
 Route.group('ajax', function(){
-    Route.delete('/delete/:id', 'UserController.ajaxDeleteBudget')
-    Route.delete('/deleteAdm/:id', 'AdminController.ajaxDeleteHousehold')
-    Route.delete('/changeUser/:id/delete', 'AdminController.ajaxDeleteUser')
+    Route.get('/search', 'UserController.ajaxSearch').middleware('auth')
+    Route.delete('/delete/:id', 'UserController.ajaxDeleteBudget').middleware('auth')
+    Route.delete('/deleteAdm/:id', 'AdminController.ajaxDeleteHousehold').middleware('auth')
+    Route.delete('/changeUser/:id/delete', 'AdminController.ajaxDeleteUser').middleware('auth')
 }).prefix('/ajax');

@@ -236,6 +236,18 @@ class UserController {
             message:'OK!'
         });
     }
+
+    * ajaxSearch(req, res){
+        var query = req.input('q');
+        if(!query){
+            res.ok([]);
+            return;
+        }
+        var users = yield User.query().where('firstname', 'LIKE', '%' + query + '%')
+                              .orWhere('lastname', 'LIKE', '%' + query + '%')
+                              .limit(5);
+        res.ok(users);
+    }
 }
 
 module.exports = UserController
