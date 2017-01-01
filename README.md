@@ -123,24 +123,24 @@ Ajax:
 ###Javascript
 
 1. Bevétel\Kiadás összesítés
-- **Megtalálható:** home.njk
-- **Script:** sum.js
-- **Leírás:** összesíti az adott lakás összes felhasználó bevételeit/kiadásait és a végösszeget kiírja az oldalon
+	* **Megtalálható:** home.njk
+	* **Script:** sum.js
+	* **Leírás:** összesíti az adott lakás összes felhasználó bevételeit/kiadásait és a végösszeget kiírja az oldalon
 
 2. Törlés
-- **Megtalálható:** listHouseholds.njk, changeUser.njk, showbudgets.njk
-- **Script:** show.js
-- **Leírás:** amennyiben rákattintunk a törlés gombra egy figyelmeztető üzenet jelenik meg, ahol jóvá kell hagyni a törlést, de el is utasíthatjuk
+	* **Megtalálható:** listHouseholds.njk, changeUser.njk, showbudgets.njk
+	* **Script:** show.js
+	* **Leírás:** amennyiben rákattintunk a törlés gombra egy figyelmeztető üzenet jelenik meg, ahol jóvá kell hagyni a törlést, de el is utasíthatjuk
 
 3. Óra
-- **Megtalálható:** parent.njk
-- **Script:** clock.js
-- **Leírás:** megjelenít az idő a menűsorban amit 0,5 másodpercenként frissít
+	* **Megtalálható:** parent.njk
+	* **Script:** clock.js
+	* **Leírás:** megjelenít az idő a menűsorban amit 0,5 másodpercenként frissít
 
 4. Keresés
-- **Megtalálható:** home.njk (csak adminként látható)
-- **Script:** search.js
-- **Leírás:** amint elkezdünk gépelni alatta megjeleníti azon felhasználókat akinek a nevében megtalálható a beírt szó
+	* **Megtalálható:** home.njk (csak adminként látható)
+	* **Script:** search.js
+	* **Leírás:** amint elkezdünk gépelni alatta megjeleníti azon felhasználókat akinek a nevében megtalálható a beírt szó
 
 ####Szekvencia diagram
 Az alábbi szekvencia diagram szemlélteti egy felhasználó bejelentkezik, megkapja a bevételek/kiadások összegét,
