@@ -67,24 +67,22 @@ Lakóként egy új kiadást hozunk létre:
 - **Bejelentkezett:**
 	* Főoldal
 		* Adminisztrátor:
-			* Lakók
-			* Háztartások
+			* Háztartások listázása
+			* Felhasználó adatainak módosítása
 		* Lakó:
-			* Bevétel/kiadás listája
-	* Lakók
+			* Saját bevétel/kiadás listázása
+			* Bevétel/kiadás rögzítése 
+	* Háztartások listázása:
 		* Adminisztrátor:
-			* Új lakó felvétele
-			* Lakó törlése
-			* Lakó háztartáshoz rendelése
-	* Háztartások:
-		* Adminisztrátor:
-			* Új háztartás létrehozása
 			* Háztartás törlése
-	* Bevételek/Kiadások:
+			* Háztartás szerkesztése
+	* Saját bevételek/kiadások listázása:
 		* Lakó:
-			* Új létrehozása
 			* Módosítás
 			* Törlés
+	* Bevétel/kiadás rögzítése:
+		* Lakó:
+			* Új bevétel/kiadás megadása
 			
 ####Végpontok
 User:
@@ -101,7 +99,7 @@ User:
 - GET/showbudgets: felhasználó költségeinek listázása
 - GET/editbudgets/edit=id: költség adatainak módosítása
 - POST/editbudgets/edit=id: költség adatainak elküldése
-- GET/delete/edit=id: költség törlése
+- POST/delete/edit=id: költség törlése
 - GET/editUser/edit=id: felhasználó adatainak módosítása
 - POST/editUser/edit=id: felhasználó addatainak elküldése
 - GET/changePassword/edit=id: jelszó módosítása
@@ -110,11 +108,45 @@ User:
 Admin:
 - GET/changeUser/edit=id: kiválasztott felhasználó adatainak módosítása
 - POST/changeUser/edit=id: felhasználó adatainak elküldése
-- GET/changeUser/edit=id/delete: kiválasztott felhasználó törlése
+- POST/changeUser/edit=id/delete: kiválasztott felhasználó törlése
 - GET/listHouseholds: lakások kilistázása
 - GET/editAddress/edit=id: lakás adatainak szerkesztése
 - POST/editAddress/edit=id: lakás adataink elküldése
-- GET/delete/edit=id: lakás törlése
+- POST/deleteAdm/edit=id: lakás törlése
+
+Ajax:
+- GET/search: felhasználó keresése a neve alapján (csak az admin oldalon elérhető)
+- DELETE/ajax/delete/edit=id: költség törlése
+- DELETE/ajax/changeUser/edit=id/delete: kiválasztott felhasználó törlése
+- DELETE/ajax/deleteAdm/edit=id: lakás törlése
+
+###Javascript
+
+1. Bevétel\Kiadás összesítés
+- **Megtalálható:** home.njk
+- **Script:** sum.js
+- **Leírás:** összesíti az adott lakás összes felhasználó bevételeit/kiadásait és a végösszeget kiírja az oldalon
+
+2. Törlés
+- **Megtalálható:** listHouseholds.njk, changeUser.njk, showbudgets.njk
+- **Script:** show.js
+- **Leírás:** amennyiben rákattintunk a törlés gombra egy figyelmeztető üzenet jelenik meg, ahol jóvá kell hagyni a törlést, de el is utasíthatjuk
+
+3. Óra
+- **Megtalálható:** parent.njk
+- **Script:** clock.js
+- **Leírás:** megjelenít az idő a menűsorban amit 0,5 másodpercenként frissít
+
+4. Keresés
+- **Megtalálható:** home.njk (csak adminként látható)
+- **Script:** search.js
+- **Leírás:** amint elkezdünk gépelni alatta megjeleníti azon felhasználókat akinek a nevében megtalálható a beírt szó
+
+####Szekvencia diagram
+Az alábbi szekvencia diagram szemlélteti egy felhasználó bejelentkezik, megkapja a bevételek/kiadások összegét,
+kilistázza a költségeteket, szerkeszti azokat, új költséget rögzít végül pedig kijelentkezik
+
+![] (Images/mockup/szekvencia.jpg)
 
 ####Oldalvázlatok
 
@@ -127,8 +159,6 @@ Admin:
 ![](Images/mockup/Haztartasok.jpg)
 
 ![](Images/mockup/Uj_Haztartas.jpg)
-
-![](Images/mockup/Lakok.jpg)
 
 ![](Images/mockup/Uj_Lako.jpg)
 

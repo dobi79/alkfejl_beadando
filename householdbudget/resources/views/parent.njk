@@ -55,11 +55,8 @@
           <div style="float:right; padding-top:0.5%">
             {% if currentUser.id == 1111 %}
             <div style="float:right">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{currentUser.lastname}}
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="/logout">Kilépés</a></li>
-              </ul>
+              Felhasználó: {{currentUser.lastname}}
+              <a href="/logout"><button class="btn btn-default" type="button">Kijelentkezés</button></a>   
             </div>
             <div id="clock" style="float:right; padding-top: 10px; padding-right:10px"></div>
             <div style="float:right; padding-right:10px">
@@ -72,14 +69,9 @@
             </div>
             {% else%}    
                <div style="float:right">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{currentUser.lastname}} {{currentUser.firstname}}
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="/editUser/{{currentUser.id}}">Szerkesztés</a></li>
-                <li><a href="/changePassword/{{currentUser.id}}">Jelszó módosítás</a></li>
-                <li class="divider"></li>
-                <li><a href="/logout">Kilépés</a></li>
-              </ul>
+                 <a href="/editUser/{{currentUser.id}}"><button class="btn btn-default" type="button">{{currentUser.lastname}} {{currentUser.firstname}}</button></a>
+                 <a href="/changePassword/{{currentUser.id}}"><button class="btn btn-default" type="button">Jelszó módosítása</button></a>
+                 <a href="/logout"><button class="btn btn-default" type="button">Kijelentkezés</button></a>
                </div>
                 <div id="clock" style="float:right; padding-top: 10px; padding-right:10px"></div>
             {%endif%}
